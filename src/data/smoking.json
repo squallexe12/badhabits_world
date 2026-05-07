@@ -1,0 +1,12 @@
+[
+  { "country": "Sırbistan", "countryCode": "RS", "rate": 35.5, "note": "Yetişkin nüfusun üçte biri düzenli kullanıcı; küresel ortalamanın iki katı üzerinde.", "source": "DSÖ" },
+  { "country": "Bulgaristan", "countryCode": "BG", "rate": 33.0, "note": "Avrupa Birliği içinde en yüksek oran.", "source": "Eurostat" },
+  { "country": "Yunanistan", "countryCode": "GR", "rate": 30.6, "note": "Akdeniz ülkeleri içinde sigara kullanımı en yaygın olan.", "source": "OECD" },
+  { "country": "Türkiye", "countryCode": "TR", "rate": 28.3, "note": "Erkek %42,1 / Kadın %14,9 — büyük cinsiyet farkı (TÜİK 2022).", "source": "TÜİK" },
+  { "country": "Çin", "countryCode": "CN", "rate": 25.6, "note": "Toplam tüketim hacmi dünyada birinci; erkeklerde yaygınlık çok yüksek.", "source": "DSÖ" },
+  { "country": "Rusya", "countryCode": "RU", "rate": 24.1, "note": "Erkeklerde yaygınlık tarihsel olarak yüksek; son yıllarda azalma var.", "source": "DSÖ" },
+  { "country": "Almanya", "countryCode": "DE", "rate": 22.0, "note": "Genç yetişkinler arasında oran tekrar artışta.", "source": "OECD" },
+  { "country": "Fransa", "countryCode": "FR", "rate": 25.5, "note": "Devlet kampanyalarına rağmen Batı Avrupa'da yüksek bir nokta.", "source": "OECD" },
+  { "country": "ABD", "countryCode": "US", "rate": 11.5, "note": "1965'teki %42'den belirgin düşüş; e-sigara kullanımı ayrıca artıyor.", "source": "CDC" },
+  { "country": "Japonya", "countryCode": "JP", "rate": 16.7, "note": "Erkeklerde tarihsel olarak yüksek; son on yılda hızla azalıyor.", "source": "OECD" }
+]

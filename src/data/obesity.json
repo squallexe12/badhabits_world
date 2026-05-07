@@ -1,0 +1,12 @@
+[
+  { "country": "ABD", "countryCode": "US", "obesityRate": 41.0, "overweightRate": 56.0, "note": "İşlenmiş gıda ekonomisi + şehirleşme + araba bağımlılığının doğrudan sonucu.", "source": "CDC" },
+  { "country": "Suudi Arabistan", "countryCode": "SA", "obesityRate": 35.4, "overweightRate": 38.2, "note": "Orta Doğu'da yüksek; hareketsiz yaşam ve gelirin işlenmiş gıdaya yönelmesi.", "source": "DSÖ" },
+  { "country": "Mısır", "countryCode": "EG", "obesityRate": 32.0, "overweightRate": 36.0, "note": "Bölgesel olarak en yüksek oranlardan biri; kadınlarda daha belirgin.", "source": "DSÖ" },
+  { "country": "Hırvatistan", "countryCode": "HR", "obesityRate": 24.4, "overweightRate": 35.1, "note": "Avrupa'nın en obez ülkelerinden; Akdeniz beslenme kayboluyor.", "source": "Eurostat" },
+  { "country": "Birleşik Krallık", "countryCode": "GB", "obesityRate": 27.8, "overweightRate": 36.8, "note": "Avrupa'nın obezite zirvesindeki ülkelerinden.", "source": "OECD" },
+  { "country": "Türkiye", "countryCode": "TR", "obesityRate": 28.5, "overweightRate": 36.3, "note": "OECD ortalamasının üzerinde; kadınlarda erkeklere göre belirgin yüksek.", "source": "TÜİK" },
+  { "country": "Almanya", "countryCode": "DE", "obesityRate": 19.0, "overweightRate": 35.0, "note": "Batı Avrupa için ortalama bir nokta.", "source": "OECD" },
+  { "country": "Fransa", "countryCode": "FR", "obesityRate": 17.0, "overweightRate": 30.0, "note": "Avrupa'nın daha düşük oranlarından; Akdeniz beslenmesinin kalıntıları.", "source": "OECD" },
+  { "country": "Japonya", "countryCode": "JP", "obesityRate": 4.5, "overweightRate": 23.4, "note": "Gelişmiş ekonomiler içinde dünya rekoru — düşük oran.", "source": "OECD" },
+  { "country": "Güney Kore", "countryCode": "KR", "obesityRate": 6.8, "overweightRate": 30.0, "note": "Geleneksel diyet ve yürüyüşe dayalı şehirleşme.", "source": "OECD" }
+]

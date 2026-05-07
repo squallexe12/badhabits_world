@@ -1,0 +1,10 @@
+{
+  "incomeThresholdUSD": 30000,
+  "thresholdDescription": "30.000$ kişi başı milli gelir eşiğinin altındaki ülkelerde sigara ve alkol kaynaklı ölüm yükü belirgin biçimde daha yüksek; eşiğin üzerinde obezite ve uyku açığı öne çıkıyor.",
+  "culturalFactors": [
+    { "country": "Japonya", "countryCode": "JP", "factors": ["Geleneksel düşük-kalori diyet (balık, pirinç, sebze)", "Ofis kültürü uyku açığı yaratıyor", "Sigara tarihsel olarak yüksek, son on yılda düşüşte"] },
+    { "country": "Doğu Avrupa", "countryCode": "EU-E", "factors": ["Yüksek bira/sert alkol tüketimi", "Sigaraya kültürel tolerans", "Soğuk iklim + sosyal içme normu"] },
+    { "country": "ABD", "countryCode": "US", "factors": ["İşlenmiş gıda ekonomisi", "Araba bağımlı şehirleşme — fiziksel hareket düşük", "7/24 ekran kültürü uyku açığını derinleştiriyor"] },
+    { "country": "Türkiye", "countryCode": "TR", "factors": ["Kültürel/dini faktörler alkol tüketimini düşük tutuyor", "Sigara hâlâ yüksek; cinsiyet farkı belirgin", "Şehirleşmeyle birlikte obezite oranları yükseliyor"] }
+  ]
+}

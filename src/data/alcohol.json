@@ -1,0 +1,12 @@
+[
+  { "country": "Çek Cumhuriyeti", "countryCode": "CZ", "litersPerCapita": 13.7, "shotsEquivalent": 550, "note": "Bira tüketimi geleneksel olarak çok yüksek; yıllık kişi başı 550 küçük şişe biraya eş değer.", "source": "OECD Health" },
+  { "country": "Letonya", "countryCode": "LV", "litersPerCapita": 13.2, "shotsEquivalent": 528, "note": "Doğu Avrupa zirvesinin parçası.", "source": "DSÖ" },
+  { "country": "Litvanya", "countryCode": "LT", "litersPerCapita": 12.8, "shotsEquivalent": 512, "note": "Alkole bağlı ölüm oranı AB ortalamasının üzerinde.", "source": "DSÖ" },
+  { "country": "Almanya", "countryCode": "DE", "litersPerCapita": 12.2, "shotsEquivalent": 488, "note": "Bira kültürü yerleşik; tüketim son yıllarda hafif düşüşte.", "source": "OECD" },
+  { "country": "Rusya", "countryCode": "RU", "litersPerCapita": 11.7, "shotsEquivalent": 468, "note": "Sert alkol payı yüksek; alkole bağlı erken ölüm oranları belirgin.", "source": "DSÖ" },
+  { "country": "Fransa", "countryCode": "FR", "litersPerCapita": 11.4, "shotsEquivalent": 456, "note": "Şarap kültürü; günlük orta tüketim yaygın.", "source": "OECD" },
+  { "country": "ABD", "countryCode": "US", "litersPerCapita": 9.5, "shotsEquivalent": 380, "note": "OECD ortalamasının biraz altında, ancak ağır içicilik artışta.", "source": "OECD" },
+  { "country": "Japonya", "countryCode": "JP", "litersPerCapita": 7.0, "shotsEquivalent": 280, "note": "İş kültürüyle bağlantılı sosyal içme yaygın.", "source": "OECD" },
+  { "country": "Türkiye", "countryCode": "TR", "litersPerCapita": 1.5, "shotsEquivalent": 60, "note": "OECD'de en düşük üçüncü; kültürel ve dini faktörler belirleyici.", "source": "OECD" },
+  { "country": "Endonezya", "countryCode": "ID", "litersPerCapita": 0.5, "shotsEquivalent": 20, "note": "Müslüman çoğunluk; tüketim küresel ortalamanın çok altında.", "source": "DSÖ" }
+]

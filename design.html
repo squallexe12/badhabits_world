@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Sağlıksız alışkanlıkların — sigara, alkol, obezite, uyku — küresel atlası. Veri ile anlatılan bir halk sağlığı portresi." />
+<title>Sağlıksız Alışkanlıkların Atlası · BadHabits.world</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Public+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* ATLAS PALETTE — warm parchment, ink, oxidized accents */
+  --paper:        #EFE7D2;
+  --paper-soft:   #E7DFC8;
+  --paper-deep:   #DDD3B8;
+  --ink:          #1B140C;
+  --ink-soft:     #3A2F22;
+  --ink-mute:     #6B5C46;
+  --hairline:     #2A1F12;
+  --hairline-soft:#8C7B5C;
+
+  /* category accents — desaturated, tobacco-stained */
+  --smoking:      #9C2A1F;  /* oxblood */
+  --alcohol:      #5C4474;  /* tütün moru */
+  --obesity:      #B95F1B;  /* yanık turuncu */
+  --sleep:        #3F5C75;  /* liman mavisi */
+  --gold:         #B98F3D;  /* altın yaprak */
+
+  --display: "Fraunces", ui-serif, Georgia, serif;
+  --body:    "Public Sans", system-ui, -apple-system, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body{
+  margin:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* parchment grain */
+body::before{
+  content:"";
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.11  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  opacity: .55;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+body::after{
+  content:"";
+  position: fixed; inset:0;
+  background: radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(27,20,12,.18) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+.frame { position: relative; z-index: 2; }
+
+/* ──────────────── MASTHEAD ──────────────── */
+.masthead{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  padding: 1.6rem clamp(1.25rem, 4vw, 3rem) 1rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.mark{
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: .14em;
+  font-size: .82rem;
+  color: var(--ink);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+}
+.mark .glyph{
+  display:inline-flex; width:1.6rem; height:1.6rem;
+  align-items:center; justify-content:center;
+  border:1px solid var(--ink);
+  border-radius: 50%;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: .98rem;
+  letter-spacing:0;
+}
+.nav{
+  display:flex; gap: 1.6rem; justify-content: center;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.nav a{ color: inherit; text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: border-color .25s, color .25s; }
+.nav a:hover{ color: var(--ink); border-bottom-color: var(--ink); }
+.edition{
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-align: right;
+  line-height: 1.3;
+}
+.edition strong{ color: var(--ink); display:block; font-weight:700; }
+
+@media (max-width: 720px){
+  .masthead{ grid-template-columns: 1fr auto; }
+  .nav{ display:none; }
+}
+
+/* ──────────────── HERO ──────────────── */
+.hero{
+  padding: clamp(2.5rem, 8vw, 6rem) clamp(1.25rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 380px);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+}
+.hero .eyebrow{
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: inline-flex; align-items:center; gap: .8rem;
+  margin-bottom: 1.6rem;
+}
+.hero .eyebrow::before{
+  content:""; width: 28px; height:1px; background: var(--ink-mute);
+}
+.hero h1{
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  font-size: clamp(3rem, 9vw, 7.6rem);
+  line-height: .92;
+  letter-spacing: -.02em;
+  margin: 0 0 1.4rem;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.hero h1 .roman{
+  font-style: normal;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+  display:block;
+}
+.hero h1 em.gold{
+  font-style: italic;
+  color: var(--gold);
+  position: relative;
+}
+.hero h1 em.gold::after{
+  content:"";
+  position:absolute; left:-2%; right:-2%; bottom:.05em;
+  height: 4px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  animation: rule 1.4s .9s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes rule { to { transform: scaleX(1); } }
+
+.hero .lede{
+  max-width: 56ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.hero .lede strong{ color: var(--ink); font-weight: 600; }
+
+.hero-aside{
+  border-left: 1px solid var(--hairline);
+  padding-left: clamp(1.25rem, 3vw, 2rem);
+  font-family: var(--body);
+  font-size: .92rem;
+  color: var(--ink-soft);
+  position: relative;
+}
+.hero-aside .label{
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: .8rem;
+}
+.hero-aside p{ margin: 0 0 1rem; line-height: 1.55; }
+.hero-aside .cta{
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: .8rem 1.1rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  margin-top: .6rem;
+  transition: background .25s, color .25s, transform .25s;
+}
+.hero-aside .cta:hover{ background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+.hero-aside .cta .arr{ transition: transform .25s; }
+.hero-aside .cta:hover .arr{ transform: translateX(4px); }
+
+.wisp{
+  position: absolute;
+  right: 5%; top: 12%;
+  width: 220px; height: 280px;
+  pointer-events: none;
+  opacity: .35;
+  mix-blend-mode: multiply;
+  filter: blur(1px);
+}
+
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .hero-aside{ border-left: 0; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 1.6rem; }
+  .wisp{ display:none; }
+}
+
+/* ──────────────── STAT GRID ──────────────── */
+.stats{
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--hairline);
+}
+.section-head{
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 1.5rem; margin-bottom: clamp(1.6rem, 3vw, 3rem);
+  border-top: 3px solid var(--ink);
+  padding-top: 1rem;
+  position: relative;
+}
+.section-head::after{
+  content:""; position:absolute; left:0; top:-3px; width:80px; height:6px; background: var(--ink);
+}
+.section-head h2{
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 96, "SOFT" 60;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1;
+  margin: 0; letter-spacing: -.01em;
+}
+.section-head .meta{
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-align: right;
+}
+
+.stat-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+}
+.stat{
+  position: relative;
+  background: var(--paper-soft);
+  border: 1px solid var(--hairline);
+  padding: 1.6rem 1.4rem 1.4rem;
+  display: flex; flex-direction: column; gap: .8rem;
+  min-height: 280px;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+}
+.stat::before{
+  content:"";
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: 4px; background: var(--accent, var(--ink));
+  transition: width .3s cubic-bezier(.2,.7,.2,1);
+}
+.stat:hover{ transform: translateY(-4px); box-shadow: 0 12px 0 -8px rgba(27,20,12,.25); }
+.stat:hover::before{ width: 10px; }
+
+.stat .num{
+  font-family: var(--display);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 700;
+  font-size: clamp(3.4rem, 7vw, 5.8rem);
+  line-height: .9;
+  letter-spacing: -.03em;
+  color: var(--accent, var(--ink));
+  font-feature-settings: "tnum";
+  margin-top: auto;
+}
+.stat .num .unit{
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: .35em;
+  letter-spacing: .1em;
+  margin-left: .2em;
+  color: var(--ink-soft);
+  vertical-align: .25em;
+}
+.stat .label{
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.stat .country{
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 80;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex; align-items: baseline; gap: .5rem;
+}
+.stat .country code{
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .15em;
+  color: var(--ink-mute);
+  font-style: normal;
+}
+.stat .note{
+  font-size: .9rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.stat .corner{
+  position: absolute; top: 1rem; right: 1.1rem;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: inline-flex; align-items: center; gap: .4rem;
+}
+.stat .corner svg{ width: 14px; height: 14px; }
+
+.stat--smoking { --accent: var(--smoking); }
+.stat--alcohol { --accent: var(--alcohol); }
+.stat--obesity { --accent: var(--obesity); }
+.stat--sleep   { --accent: var(--sleep); }
+.stat--mega    { --accent: var(--obesity); background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.stat--mega .label{ color: rgba(239,231,210,.65); }
+.stat--mega .country{ color: var(--paper); }
+.stat--mega .note{ color: rgba(239,231,210,.78); }
+.stat--mega .num{ color: var(--gold); }
+.stat--mega .corner{ color: rgba(239,231,210,.55); }
+
+/* asymmetric layout: top row 5+4+3, bottom row 7+5 */
+@media (min-width: 981px){
+  .stat--smoking { grid-column: 1 / span 5; grid-row: 1; }
+  .stat--alcohol { grid-column: 6 / span 4; grid-row: 1; margin-top: 2.2rem; }
+  .stat--obesity { grid-column: 10 / span 3; grid-row: 1; }
+  .stat--sleep   { grid-column: 1 / span 7; grid-row: 2; }
+  .stat--mega    { grid-column: 8 / span 5; grid-row: 2; }
+}
+@media (max-width: 980px){
+  .stat-grid{ grid-template-columns: repeat(2, 1fr); }
+  .stat{ grid-column: span 1 !important; margin-top: 0 !important; }
+}
+@media (max-width: 580px){
+  .stat-grid{ grid-template-columns: 1fr; }
+}
+
+/* ──────────────── RANKING ──────────────── */
+.ranking{
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--hairline);
+  background: var(--paper-soft);
+  position: relative;
+}
+.rank-list{
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 0;
+  border-top: 1px solid var(--hairline);
+}
+.rank-row{
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  padding: 1.5rem clamp(.5rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--hairline);
+  transition: background .25s, padding .25s;
+}
+.rank-row:hover{ background: var(--paper-deep); padding-left: clamp(1rem, 3vw, 2.2rem); }
+.rank-num{
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+  font-weight: 600;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1;
+  color: var(--gold);
+  width: 4ch;
+  font-feature-settings:"tnum";
+}
+.rank-name{
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 60, "SOFT" 60;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+.rank-name small{
+  display: block;
+  font-family: var(--body);
+  font-style: normal;
+  font-size: .85rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-top: .25rem;
+  letter-spacing: 0;
+}
+.rank-tags{
+  display: flex; gap: .35rem; flex-wrap: wrap;
+}
+.tag{
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .35rem .55rem;
+  border: 1px solid currentColor;
+  color: var(--c, var(--ink));
+  white-space: nowrap;
+}
+.tag-smoking{ --c: var(--smoking); }
+.tag-alcohol{ --c: var(--alcohol); }
+.tag-obesity{ --c: var(--obesity); }
+.tag-sleep  { --c: var(--sleep); }
+.rank-arrow{
+  font-family: var(--mono);
+  font-size: 1.4rem;
+  color: var(--ink-mute);
+  transition: transform .25s, color .25s;
+}
+.rank-row:hover .rank-arrow{ transform: translateX(6px); color: var(--ink); }
+.ranking .more{
+  margin-top: 2rem;
+  font-family: var(--mono);
+  font-size: .76rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: .6rem;
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 4px;
+}
+.ranking .more:hover{ color: var(--gold); border-color: var(--gold); }
+
+@media (max-width: 720px){
+  .rank-row{ grid-template-columns: auto 1fr; row-gap: .5rem; }
+  .rank-tags{ grid-column: 1 / -1; }
+  .rank-arrow{ display:none; }
+}
+
+/* ──────────────── CATEGORY NAV ──────────────── */
+.cats{
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem);
+}
+.cat-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--hairline);
+}
+.cat{
+  position: relative;
+  display: block;
+  padding: 2rem 1.6rem 1.6rem;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--paper-soft);
+  border-right: 1px solid var(--hairline);
+  min-height: 320px;
+  overflow: hidden;
+  transition: background .35s ease, color .35s ease;
+}
+.cat:last-child{ border-right: 0; }
+.cat::before{
+  content:"";
+  position: absolute; left: 0; right: 0; top: 0; height: 6px;
+  background: var(--accent);
+  transition: height .3s cubic-bezier(.2,.7,.2,1);
+}
+.cat:hover{ background: var(--accent); color: var(--paper); }
+.cat:hover::before{ height: 100%; }
+.cat > *{ position: relative; z-index: 1; }
+.cat .num{
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .22em;
+  color: var(--ink-mute);
+  transition: color .3s;
+}
+.cat:hover .num{ color: rgba(239,231,210,.7); }
+.cat h3{
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 96, "SOFT" 80;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1;
+  margin: 1.4rem 0 .6rem;
+  letter-spacing: -.01em;
+}
+.cat p{
+  font-size: .92rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 28ch;
+  margin: 0 0 2rem;
+  transition: color .3s;
+}
+.cat:hover p{ color: rgba(239,231,210,.85); }
+.cat .stat-strip{
+  position: absolute; bottom: 1.4rem; left: 1.6rem; right: 1.6rem;
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.cat .stat-strip .big{
+  font-family: var(--display);
+  font-weight: 700;
+  font-variation-settings: "opsz" 96, "SOFT" 0;
+  font-size: 1.6rem;
+  letter-spacing: -.02em;
+  color: var(--accent);
+  text-transform: none;
+  font-feature-settings:"tnum";
+  transition: color .3s;
+}
+.cat:hover .stat-strip .big{ color: var(--paper); }
+.cat .arr{ transition: transform .3s; display:inline-block; }
+.cat:hover .arr{ transform: translateX(8px); }
+
+.cat--smoking{ --accent: var(--smoking); }
+.cat--alcohol{ --accent: var(--alcohol); }
+.cat--obesity{ --accent: var(--obesity); }
+.cat--sleep  { --accent: var(--sleep); }
+
+@media (max-width: 980px){
+  .cat-grid{ grid-template-columns: repeat(2, 1fr); }
+  .cat{ border-right: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .cat:nth-child(2n){ border-right: 0; }
+  .cat:nth-child(n+3){ border-bottom: 0; }
+}
+@media (max-width: 540px){
+  .cat-grid{ grid-template-columns: 1fr; }
+  .cat{ border-right: 0; border-bottom: 1px solid var(--hairline); min-height: 240px; }
+  .cat:last-child{ border-bottom: 0; }
+}
+
+/* ──────────────── COLOPHON ──────────────── */
+.colophon{
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem) 3rem;
+  border-top: 3px solid var(--ink);
+  background: var(--paper-deep);
+  position: relative;
+}
+.colophon::before{
+  content:""; position:absolute; left:0; top:-3px; width:80px; height:6px; background: var(--ink);
+}
+.colophon-grid{
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 2.5rem;
+}
+.colophon h4{
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin: 0 0 1rem;
+  font-weight: 500;
+}
+.colophon-mast{
+  font-family: var(--display);
+  font-style: italic;
+  font-variation-settings: "opsz" 96, "SOFT" 70;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+  color: var(--ink);
+}
+.colophon p{ font-size: .9rem; line-height: 1.55; color: var(--ink-soft); margin: 0 0 .8rem; }
+.colophon a{ color: var(--ink); border-bottom: 1px solid var(--hairline-soft); text-decoration: none; }
+.colophon a:hover{ border-bottom-color: var(--ink); }
+.colophon ul{ list-style: none; padding: 0; margin: 0; font-size: .88rem; color: var(--ink-soft); }
+.colophon ul li{ margin: 0 0 .4rem; }
+.colophon .imprint{
+  margin-top: 3rem;
+  display: flex; justify-content: space-between;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.2rem;
+}
+@media (max-width: 820px){
+  .colophon-grid{ grid-template-columns: 1fr 1fr; }
+  .colophon-mast{ grid-column: span 2; }
+}
+@media (max-width: 520px){
+  .colophon-grid{ grid-template-columns: 1fr; }
+  .colophon-mast{ grid-column: span 1; }
+  .colophon .imprint{ flex-direction: column; gap: .6rem; }
+}
+
+/* entrance */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity: 0; transform: translateY(14px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-in{ opacity: 1; transform: none; }
+  .stagger > * { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .stagger.is-in > *{ opacity:1; transform:none; }
+  .stagger.is-in > *:nth-child(1){ transition-delay: .05s; }
+  .stagger.is-in > *:nth-child(2){ transition-delay: .15s; }
+  .stagger.is-in > *:nth-child(3){ transition-delay: .25s; }
+  .stagger.is-in > *:nth-child(4){ transition-delay: .35s; }
+  .stagger.is-in > *:nth-child(5){ transition-delay: .45s; }
+  .stagger.is-in > *:nth-child(6){ transition-delay: .55s; }
+}
+
+::selection{ background: var(--gold); color: var(--ink); }
+
+.skip{ position: absolute; left: -9999px; top: 0; }
+.skip:focus{ left: 1rem; top: 1rem; background: var(--ink); color: var(--paper); padding: .6rem .8rem; font-family: var(--mono); font-size: .8rem; letter-spacing: .15em; text-transform: uppercase; z-index: 100; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Ana içeriğe atla</a>
+
+<div class="frame">
+
+  <header class="masthead">
+    <a href="/" class="mark" aria-label="Ana sayfa">
+      <span class="glyph">B</span>
+      <span>BadHabits<span style="color:var(--ink-mute)">·</span>World</span>
+    </a>
+    <nav class="nav" aria-label="Ana navigasyon">
+      <a href="/sigara">Sigara</a>
+      <a href="/alkol">Alkol</a>
+      <a href="/obezite">Obezite</a>
+      <a href="/uyku">Uyku</a>
+      <a href="/siralama">Sıralama</a>
+      <a href="/ekonomi">Ekonomi</a>
+    </nav>
+    <div class="edition">
+      <strong>Edisyon № 01</strong>
+      Mayıs 2026
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <svg class="wisp" viewBox="0 0 220 280" aria-hidden="true">
+        <defs>
+          <linearGradient id="smoke" x1="50%" y1="100%" x2="50%" y2="0%">
+            <stop offset="0%" stop-color="#1B140C" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#1B140C" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M110 280 C 70 240 150 200 90 160 C 40 130 160 100 100 60 C 60 30 140 0 110 -20" stroke="url(#smoke)" stroke-width="14" fill="none" stroke-linecap="round" />
+        <path d="M130 280 C 100 240 170 200 130 160 C 100 130 180 100 140 60" stroke="url(#smoke)" stroke-width="8" fill="none" stroke-linecap="round" opacity=".6"/>
+      </svg>
+
+      <div class="reveal">
+        <div class="eyebrow">Halk Sağlığı Atlası · Edisyon № 01</div>
+        <h1>
+          <span class="roman">Sağlıksız</span>
+          alışkanlıkların
+          <em class="gold">küresel</em> portresi.
+        </h1>
+        <p class="lede">
+          Sigara, alkol, obezite ve uyku — dünyanın <strong>önlenebilir ölüm yükünü</strong> taşıyan dört alışkanlık. Bu atlas; DSÖ, OECD ve Eurostat verilerini ülke ülke, sayı sayı, görsel bir dile çevirir.
+        </p>
+      </div>
+
+      <aside class="hero-aside reveal">
+        <div class="label">Bu sayıda</div>
+        <p>33 ülke · 4 risk faktörü · 1 metodoloji notu. Veriler Mayıs 2026 itibarıyla en güncel kaynaklardan derlendi ve yan yana getirildi.</p>
+        <a class="cta" href="/siralama">
+          Sıralamaya Geç
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+      </aside>
+    </section>
+
+    <section class="stats">
+      <div class="section-head">
+        <h2>Dört rakam, dört uyarı.</h2>
+        <div class="meta">
+          Tablo I<br/>
+          <span style="color:var(--ink)">Öne çıkan göstergeler</span>
+        </div>
+      </div>
+
+      <div class="stat-grid stagger">
+
+        <article class="stat stat--smoking" aria-labelledby="s1">
+          <div class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18h14v-3H3zm15 0h3v-3h-3zM6 11c2-1 0-3 2-4M10 11c2-1 0-3 2-4"/></svg>
+            01 · Sigara
+          </div>
+          <div class="label">Yetişkin Sigara Oranı</div>
+          <div class="num" data-counter="35.5" data-decimals="1">%<span class="val">0,0</span></div>
+          <div class="country" id="s1">
+            Sırbistan <code>RS</code>
+          </div>
+          <p class="note">Dünya rekoru. DSÖ'ye göre yetişkin nüfusun üçte biri düzenli kullanıcı; küresel ortalamanın iki katı üzerinde.</p>
+        </article>
+
+        <article class="stat stat--alcohol" aria-labelledby="s2">
+          <div class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 4h8l-1 6a4 4 0 1 1-6 0zM12 16v4M9 21h6"/></svg>
+            02 · Alkol
+          </div>
+          <div class="label">Yıllık · Kişi Başı</div>
+          <div class="num" data-counter="13.7" data-decimals="1"><span class="val">0,0</span><span class="unit">L</span></div>
+          <div class="country" id="s2">
+            Çek Cumhuriyeti <code>CZ</code>
+          </div>
+          <p class="note">Yaklaşık 550 küçük şişe biraya eş değer. Doğu Avrupa, alkol kaynaklı hastalıklarda küresel zirvede.</p>
+        </article>
+
+        <article class="stat stat--obesity" aria-labelledby="s3">
+          <div class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.5 2.5 2 4 2s3-.5 4-2"/></svg>
+            03 · Obezite
+          </div>
+          <div class="label">Yetişkin Obezite Oranı</div>
+          <div class="num" data-counter="41" data-decimals="0">%<span class="val">0</span></div>
+          <div class="country" id="s3">
+            ABD <code>US</code>
+          </div>
+          <p class="note">Yetişkinlerin %56'sı fazla kilolu. Şehirleşme + işlenmiş gıda ekonomisinin doğrudan sonucu.</p>
+        </article>
+
+        <article class="stat stat--sleep" aria-labelledby="s4">
+          <div class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 13a8 8 0 1 1-9-10c-1 4 1 8 5 9 1 .25 2 .5 4 1z"/></svg>
+            04 · Uyku
+          </div>
+          <div class="label">Gece Başına Ortalama Uyku</div>
+          <div class="num" data-counter="6.8" data-decimals="1"><span class="val">0,0</span><span class="unit">saat</span></div>
+          <div class="country" id="s4">
+            ABD <code>US</code>
+          </div>
+          <p class="note">DSÖ önerisi 7–9 saat. Günde 1,2 saatlik kronik açık; gelişmiş ekonomilerde "verimlilik kültürü"nün sessiz bedeli.</p>
+        </article>
+
+        <article class="stat stat--mega" aria-labelledby="s5">
+          <div class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            Küresel Ölçek
+          </div>
+          <div class="label">Obez yetişkin · 2025</div>
+          <div class="num" data-counter="500" data-decimals="0"><span class="val">0</span><span class="unit">milyon+</span></div>
+          <div class="country" id="s5">
+            Dünya geneli
+          </div>
+          <p class="note">Son otuz yılda iki katından fazla arttı. Her sekiz yetişkinden biri obezite tanı sınırının üzerinde.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="ranking">
+      <div class="section-head">
+        <h2>En sağlıksız altı ülke.</h2>
+        <div class="meta">
+          Tablo II<br/>
+          <span style="color:var(--ink)">NCD risk skorları</span>
+        </div>
+      </div>
+
+      <ol class="rank-list stagger">
+        <li class="rank-row">
+          <div class="rank-num">01</div>
+          <div class="rank-name">
+            Sırbistan
+            <small>Avrupa'nın en yüksek sigara oranı + yüksek alkol tüketimi</small>
+          </div>
+          <div class="rank-tags">
+            <span class="tag tag-smoking">Sigara</span>
+            <span class="tag tag-alcohol">Alkol</span>
+          </div>
+          <div class="rank-arrow" aria-hidden="true">→</div>
+        </li>
+
+        <li class="rank-row">
+          <div class="rank-num">02</div>
+          <div class="rank-name">
+            Amerika Birleşik Devletleri
+            <small>Obezite ve uyku yoksunluğunda küresel zirve</small>
+          </div>
+          <div class="rank-tags">
+            <span class="tag tag-obesity">Obezite</span>
+            <span class="tag tag-sleep">Uyku</span>
+          </div>
+          <div class="rank-arrow" aria-hidden="true">→</div>
+        </li>
+
+        <li class="rank-row">
+          <div class="rank-num">03</div>
+          <div class="rank-name">
+            Rusya Federasyonu
+            <small>Yüksek alkol tüketimi + erkeklerde sigara yaygınlığı</small>
+          </div>
+          <div class="rank-tags">
+            <span class="tag tag-alcohol">Alkol</span>
+            <span class="tag tag-smoking">Sigara</span>
+          </div>
+          <div class="rank-arrow" aria-hidden="true">→</div>
+        </li>
+      </ol>
+
+      <a href="/siralama" class="more">Tam sıralamayı gör <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="cats">
+      <div class="section-head">
+        <h2>Kategoriler.</h2>
+        <div class="meta">
+          Tablo III<br/>
+          <span style="color:var(--ink)">Derinlemesine bölümler</span>
+        </div>
+      </div>
+
+      <div class="cat-grid stagger">
+        <a class="cat cat--smoking" href="/sigara">
+          <div class="num">№ 01</div>
+          <h3>Sigara</h3>
+          <p>Dünyanın en önde gelen önlenebilir ölüm nedeni. Ülke ülke yetişkin oranları.</p>
+          <div class="stat-strip">
+            <span>Sırbistan</span>
+            <span class="big">%35,5</span>
+            <span class="arr" aria-hidden="true">→</span>
+          </div>
+        </a>
+
+        <a class="cat cat--alcohol" href="/alkol">
+          <div class="num">№ 02</div>
+          <h3>Alkol</h3>
+          <p>Doğu Avrupa zirvede; Türkiye OECD'nin üçüncü en az tüketen ülkesi. Litre · kişi.</p>
+          <div class="stat-strip">
+            <span>Çek Cumhuriyeti</span>
+            <span class="big">13,7 L</span>
+            <span class="arr" aria-hidden="true">→</span>
+          </div>
+        </a>
+
+        <a class="cat cat--obesity" href="/obezite">
+          <div class="num">№ 03</div>
+          <h3>Obezite</h3>
+          <p>Otuz yılda iki katına çıkan küresel kriz. Yetişkinler ve aşırı kilolu nüfus.</p>
+          <div class="stat-strip">
+            <span>ABD</span>
+            <span class="big">%41</span>
+            <span class="arr" aria-hidden="true">→</span>
+          </div>
+        </a>
+
+        <a class="cat cat--sleep" href="/uyku">
+          <div class="num">№ 04</div>
+          <h3>Uyku</h3>
+          <p>Modern çalışma kültürünün sessiz bedeli. Ortalama uyku ve önerilen açık.</p>
+          <div class="stat-strip">
+            <span>ABD</span>
+            <span class="big">6,8 sa</span>
+            <span class="arr" aria-hidden="true">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="colophon">
+    <div class="colophon-grid">
+      <div>
+        <h4>Kolofon</h4>
+        <p class="colophon-mast">Sayılarla anlatılan, halk sağlığının portresi.</p>
+        <p>Bu atlas; veriyi tablodan çıkarıp anlatıya dönüştürme denemesidir. Her kategori, kendi sayfasında karşılaştırmalı grafik, ülke kartı ve ekonomi-kültür bağlamıyla derinleşir.</p>
+      </div>
+
+      <div>
+        <h4>Kaynaklar</h4>
+        <ul>
+          <li><a href="https://www.who.int">Dünya Sağlık Örgütü (DSÖ)</a></li>
+          <li><a href="https://www.oecd.org">OECD Health Statistics</a></li>
+          <li><a href="https://ec.europa.eu/eurostat">Eurostat</a></li>
+          <li><a href="https://ncdrisc.org">NCD Risk Factor Collaboration</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Künye</h4>
+        <ul>
+          <li>Araştırma · <a href="/hakkinda">Metehan</a></li>
+          <li>Tasarım · Barış</li>
+          <li>Kod · Beren</li>
+          <li>Veri donanım · 6 Mayıs 2026</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="imprint">
+      <span>© MMXXVI · BadHabits·World</span>
+      <span>v 0.1 · Edisyon № 01 · Türkçe</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .stagger').forEach(el => io.observe(el));
+
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseFloat(el.dataset.counter);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const out = el.querySelector('.val');
+    const dur = 1400;
+    const start = performance.now();
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / dur);
+      const v = target * ease(t);
+      out.textContent = decimals
+        ? v.toFixed(decimals).replace('.', ',')
+        : Math.round(v).toLocaleString('tr-TR');
+      if (t < 1) requestAnimationFrame(tick);
+      else out.textContent = decimals
+        ? target.toFixed(decimals).replace('.', ',')
+        : target.toLocaleString('tr-TR');
+    };
+    requestAnimationFrame(tick);
+    counterIO.unobserve(el);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('[data-counter]').forEach(el => counterIO.observe(el));
+</script>
+</body>
+</html>

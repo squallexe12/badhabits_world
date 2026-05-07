@@ -1,0 +1,10 @@
+[
+  { "country": "ABD", "countryCode": "US", "avgHoursPerNight": 6.8, "recommendedHours": 8, "culturalFactor": "Verimlilik kültürü, uzun çalışma saatleri, ekran zamanı.", "note": "Günde 1,2 saatlik kronik açık." },
+  { "country": "Japonya", "countryCode": "JP", "avgHoursPerNight": 6.5, "recommendedHours": 8, "culturalFactor": "Ofis kültürü, geç saate kadar çalışma normu.", "note": "OECD'nin en az uyuyan ülkesi." },
+  { "country": "Güney Kore", "countryCode": "KR", "avgHoursPerNight": 6.4, "recommendedHours": 8, "culturalFactor": "Hyper-eğitim ve iş kültürü; gençlerde kronik uyku açığı.", "note": "Gençler arasında uyku açığı en derin." },
+  { "country": "Birleşik Krallık", "countryCode": "GB", "avgHoursPerNight": 7.0, "recommendedHours": 8, "culturalFactor": "Şehirleşme + commute + ekran zamanı.", "note": "Avrupa ortalamasının altında." },
+  { "country": "Almanya", "countryCode": "DE", "avgHoursPerNight": 7.4, "recommendedHours": 8, "culturalFactor": "Daha düzenli çalışma saatleri; ortalama daha sağlıklı.", "note": "Avrupa'nın iyi uyuyanlarından." },
+  { "country": "Fransa", "countryCode": "FR", "avgHoursPerNight": 7.5, "recommendedHours": 8, "culturalFactor": "Yemek kültürü ve daha geç sosyalleşme; toplam yine de yeterli.", "note": "OECD'nin en uzun uyuyan ülkelerinden." },
+  { "country": "Türkiye", "countryCode": "TR", "avgHoursPerNight": 7.1, "recommendedHours": 8, "culturalFactor": "Şehirlerde commute + ekran kullanımı; öğleden sonra çayı yine de yaygın.", "note": "Genç yetişkinlerde uyku kalitesi düşüyor." },
+  { "country": "Hindistan", "countryCode": "IN", "avgHoursPerNight": 6.9, "recommendedHours": 8, "culturalFactor": "Megakentlerde uzun yolculuklar; çok-kuşaklı ev içi yoğunluk.", "note": "Kentlerde uyku açığı kırsala göre belirgin yüksek." }
+]

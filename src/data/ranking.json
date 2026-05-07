@@ -1,0 +1,8 @@
+[
+  { "rank": 1, "country": "Sırbistan", "countryCode": "RS", "mainIssue": "Avrupa'nın en yüksek sigara oranı + yüksek alkol tüketimi", "categories": ["smoking", "alcohol"] },
+  { "rank": 2, "country": "Amerika Birleşik Devletleri", "countryCode": "US", "mainIssue": "Obezite ve uyku yoksunluğunda küresel zirve", "categories": ["obesity", "sleep"] },
+  { "rank": 3, "country": "Rusya Federasyonu", "countryCode": "RU", "mainIssue": "Yüksek alkol tüketimi + erkeklerde sigara yaygınlığı", "categories": ["alcohol", "smoking"] },
+  { "rank": 4, "country": "Çek Cumhuriyeti", "countryCode": "CZ", "mainIssue": "Dünyanın en yüksek alkol tüketimi", "categories": ["alcohol"] },
+  { "rank": 5, "country": "Suudi Arabistan", "countryCode": "SA", "mainIssue": "Hızla yükselen obezite ve hareketsiz yaşam", "categories": ["obesity"] },
+  { "rank": 6, "country": "Güney Kore", "countryCode": "KR", "mainIssue": "Gençlerde derin kronik uyku açığı + iş kültürü baskısı", "categories": ["sleep"] }
+]
